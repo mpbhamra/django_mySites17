@@ -1,0 +1,49 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}Hello Manpreet{% endblock %}
+
+{% block body_block %}
+
+    {% if testuser.student %}
+
+
+     {% if mycourse %}
+
+     <div class="row">
+            <div class="col-xs-6">
+
+
+                  <div class="panel panel-info">
+            <div class="panel-heading">Registered Courses</div>
+              <div class="panel-body">
+                  <table class="table">
+
+                      {% for course in mycourse %}
+
+                        <tr>
+                        <td>
+                          {{course.title}}
+                        </td>
+
+                        </tr>
+
+               {% endfor %}
+
+
+                  </table>
+               {% else %}
+        <strong>You are not registered in any course!</strong>
+    {% endif %}
+
+     {% else %}
+        <h1>You Are Not a Student</h1>
+    {% endif %}
+
+              </div>
+                  </div>
+            </div>
+     </div>
+
+
+
+{% endblock %}

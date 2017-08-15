@@ -1,0 +1,18 @@
+
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}Hello Manpreet{% endblock %}
+
+
+{% block body_block %}
+
+
+     <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
+        {% for fields in form %}
+            {{ fields }}
+        {% endfor %}
+
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+{% endblock %}

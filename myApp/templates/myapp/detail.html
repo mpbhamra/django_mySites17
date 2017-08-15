@@ -1,0 +1,60 @@
+{% extends 'myapp/base.html' %}
+{% block myhdg %}Hello Manpreet{% endblock %}
+{% block body_block %}
+
+    {% if courselist %}
+
+        <div class="row">
+            <div class="col-xs-6">
+
+
+                  <div class="panel panel-info">
+            <div class="panel-heading">Course Information</div>
+              <div class="panel-body">
+                    <table class="table">
+                <tr>
+                    <td>
+                      <label class="label label-success">  Title </label>
+                    </td>
+                    <td>
+                        {{ courselist.title}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <label class="label label-success">  TextBooks </label>
+                    </td>
+                    <td>
+                        {{ courselist.textbook}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <label class="label label-success">  Course No </label>
+                    </td>
+                    <td>
+                        {{ courselist.course_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <label class="label label-success">  Registered Students </label>
+                    </td>
+                    <td>
+                        {{ courselist.students}}
+                    </td>
+                </tr>
+            </table>
+              </div>
+
+
+        </div>
+            </div>
+        </div>
+
+
+    {% else %}
+        <strong>There are no available courses!</strong>
+    {% endif %}
+
+{% endblock %}

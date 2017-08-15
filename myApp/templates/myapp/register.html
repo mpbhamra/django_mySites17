@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+{% block myhdg %}Hello Manpreet{% endblock %}
+{% block body_block %}
+
+    <div class="row main">
+				<div class="main-center">
+				<h5>Students Register Panel</h5>
+					<form class="" method="POST" action="#" enctype="multipart/form-data"> {% csrf_token %}
+
+                         {% for fields in form %}
+
+                        <div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">{{ fields.label }}</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									{{ fields }}
+								</div>
+							</div>
+						</div>
+
+                        {% endfor %}
+
+                        <div class="form-group ">
+                            <input type="submit" value="Register" class="btn btn-primary btn-lg btn-block login-button" >
+					<!--		<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a> -->
+						</div>
+
+					</form>
+				</div>
+			</div>
+
+
+<!--
+     <form method="POST" class="form-group">
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    -->
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}Hello Manpreet{% endblock %}
+
+{% block body_block %}
+
+      {% if topiclist %}
+
+      <div class="row">
+            <div class="col-xs-6" style="margin-left: 25%;">
+
+
+                  <div class="panel panel-info" >
+            <div class="panel-heading">Topic List <a href="{% url 'myApp:addtopic' %}" style="float: right; margin-top: -1%; margin-right: -2%;" class="btn btn-success">Add a new Topic</a></div>
+              <div class="panel-body">
+                    <ul class="list-group checked-list-box">
+                    {% for topic in topiclist %}
+                  <li class="list-group-item courselist" data-style="button"><a class="linkref" href="{% url 'myApp:topicdetail' topic.id %}">{{topic.subject}}</a></li>
+                    {% endfor %}
+                </ul>
+              </div>
+
+
+        </div>
+            </div>
+        </div>
+
+
+
+    {% else %}
+        <strong>There are no available courses!</strong>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}Hello Manpreet{% endblock %}
+
+{% block body_block %}
+
+     {% if topicdetails %}
+
+
+
+            <div class="row">
+            <div class="col-xs-6" style="margin-left: 25%;">
+
+
+                  <div class="panel panel-info" >
+            <div class="panel-heading">Topic: {{ topicdetails.subject }} <a href="{% url 'myApp:topic' %}" style="float: right; margin-top: -1%; margin-right: -2%;" class="btn btn-success">All Topics</a></div>
+              <div class="panel-body">
+                   <table class="table">
+                <tr>
+                    <td>
+                      <label class="label label-success">  Subject: </label>
+                    </td>
+                    <td>{{ topicdetails.subject }}</td>
+                </tr>
+                <tr>
+                    <td>
+                      <label class="label label-success"> people interested in the Topic: </label>
+                    </td>
+                        <td>{{ topicdetails.num_responses }}</td>
+
+                </tr>
+                <tr>
+                    <td>
+                      <label class="label label-success"> Introductory Course  </label>
+                    </td>
+                    <td>{{ topicdetails.intro_course }}</td>
+                </tr>
+                <tr>
+
+
+                    <td>
+                      <label class="label label-success"> Average Age for the Course: </label>
+                    </td>
+                     <td>{{ topicdetails.avg_age }}</td>
+                </tr>
+                       <tr>
+                           <td colspan="2">
+
+
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Interested?</div>
+
+                    </div>
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                         <form method="POST" class="post-form">{% csrf_token %}
+
+                             <table class="table" style="border: hidden;">
+                             {% for field in form %}
+                                 <tr>
+                                     <td>
+                                         {{ field.label }}
+                                     </td>
+                                     <td>
+                                         {{ field }}
+                                     </td>
+                                 </tr>
+
+                              {% endfor %}
+                             <tr>
+                                 <td colspan="2">
+                                       <button type="submit" class="btn btn-success">Save</button>
+                                 </td>
+                                 </tr>
+                             </table>
+
+                         </form>
+
+                    </div>
+
+            </div>
+
+
+
+                           </td>
+                       </tr>
+            </table>
+
+
+
+              </div>
+
+
+        </div>
+            </div>
+        </div>
+
+
+
+    {% else %}
+        <strong>There are no available courses!</strong>
+    {% endif %}
+
+
+{% endblock %}

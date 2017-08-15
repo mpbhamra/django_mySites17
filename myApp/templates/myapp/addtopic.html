@@ -1,0 +1,78 @@
+
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}Hello Manpreet{% endblock %}
+
+
+{% block body_block %}
+
+
+{% if topiclist %}
+    <div class="row">
+    <div class="col-xs-4 newtopic centr">
+    <div class="table-responsive">
+
+  <table class="table" style="text-align: center; width: 100%;">
+    <tr class="">
+        <td colspan="2"><h3>Available Topics </h3></td>
+    </tr>
+      <tr class="">
+
+        <th>Topic title</th>
+        <th>Introduction to Course?</th>
+    </tr>
+
+
+
+        {% for topic in topiclist %}
+            <tr class="" style="background-color: yellowgreen; opacity: 0.8; border: none;">
+            <td>
+            {{ topic.subject }}
+            </td>
+                <td>
+                 {{ topic.intro_course }}
+                </td>
+            </ul>
+            </tr>
+        {% endfor %}
+
+
+
+  </table>
+</div>
+  </div>
+    <div class="col-xs-4 centr newtopic" >
+        <h2>Propose a New Topic?</h2>
+      <form method="POST" class="form">{% csrf_token %}
+     <table class="table">
+
+        {% for field in form %}
+            <tr>
+
+            <td> <label class="label label-info">{{ field.label }}</label>
+                {{ field }} </td>
+            </tr>
+
+         {% endfor %}
+     <tr>
+
+         <td>
+             <button type="submit" class="save btn btn-primary">Save</button>
+         </td>
+     </tr>
+
+     </table>
+
+
+
+        </form>
+
+
+    </div>
+
+    </div>
+    {% endif %}
+
+
+
+{% endblock %}
